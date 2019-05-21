@@ -1,6 +1,5 @@
 ﻿namespace ATP.RomanNumbersKata.Tests
 {
-    using FluentAssertions;
     using NUnit.Framework;
     using Source;
 
@@ -15,24 +14,10 @@
             _romanNumeralConverter = new RomanNumeralConverter();
         }
 
-        [Test]
-        public void Given1_ReturnI()
-        {
-            var result = _romanNumeralConverter.ToRoman(1);
-            result.Should().Be("I");
-        }
-
-        [Test]
-        public void Given2_ReturnII()
-        {
-            _romanNumeralConverter.ToRoman(2).Should().Be("II");
-        }
-
-        [Test]
-        public void Given4_ReturnIV()
-        {
-            _romanNumeralConverter.ToRoman(4).Should().Be("IV");
-        }
-
+        [TestCase(1, ExpectedResult = "I")]
+        [TestCase(2, ExpectedResult = "II")]
+        [TestCase(4, ExpectedResult = "IV")]
+        public string GivenArabicNumber_ReturnExpectedRomanNumeral(int arabic) =>
+            _romanNumeralConverter.ToRoman(arabic);
     }
 }
