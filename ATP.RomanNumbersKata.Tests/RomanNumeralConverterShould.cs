@@ -27,5 +27,12 @@
         {
             _romanNumeralConverter.ToRoman(2).Should().Be("II");
         }
+
+        [Test]
+        public void Given4_ReturnIV()
+        {
+            _romanNumeralConverter.ToRoman(4).Should().Be("IV");
+        }
+
     }
 }
