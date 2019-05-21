@@ -4,7 +4,7 @@
     {
         public string ToRoman(int arabic)
         {
-            return "I";
+            return new string('I', arabic); 
         }
     }
 }

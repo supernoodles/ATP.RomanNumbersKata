@@ -21,5 +21,11 @@
             var result = _romanNumeralConverter.ToRoman(1);
             result.Should().Be("I");
         }
+
+        [Test]
+        public void Given2_ReturnII()
+        {
+            _romanNumeralConverter.ToRoman(2).Should().Be("II");
+        }
     }
 }
