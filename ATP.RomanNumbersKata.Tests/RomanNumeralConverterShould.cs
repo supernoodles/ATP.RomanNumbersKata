@@ -7,11 +7,18 @@
     [TestFixture]
     public class RomanNumeralConverterShould
     {
+        private RomanNumeralConverter _romanNumeralConverter;
+
+        [SetUp]
+        public void Setup()
+        {
+            _romanNumeralConverter = new RomanNumeralConverter();
+        }
+
         [Test]
         public void Given1_ReturnI()
         {
-            var converter = new RomanNumeralConverter();
-            string result = converter.ToRoman(1);
+            var result = _romanNumeralConverter.ToRoman(1);
             result.Should().Be("I");
         }
     }
