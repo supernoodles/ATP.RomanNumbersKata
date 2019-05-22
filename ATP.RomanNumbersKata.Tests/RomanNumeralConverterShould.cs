@@ -27,6 +27,9 @@
         [TestCase(1, ExpectedResult = "I")]
         [TestCase(2, ExpectedResult = "II")]
         [TestCase(4, ExpectedResult = "IV")]
+        [TestCase(5, ExpectedResult = "V")]
+        [TestCase(3999, ExpectedResult = "MMMCMXCIX")]
+
         public string GivenArabicNumberInsideRomanRange_ReturnExpectedRomanNumeral(int arabic) =>
             _romanNumeralConverter.ToRoman(arabic);
     }
