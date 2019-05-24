@@ -5,29 +5,34 @@
 
     public class RomanNumeralConverter
     {
-        private readonly SortedDictionary<int,string> _romanNumeralsLookup = new SortedDictionary<int, string>
+        private readonly SortedDictionary<int, string> _romanNumeralsLookup = new SortedDictionary<int, string>
         {
-            {1, "I"},
-            {4, "IV"},
-            {5, "V"},
-            {9, "IX"},
+            {1000, "M"},
+            {900, "CM"},
+            {500, "D"},
+            {400, "CD"},
+            {100, "C"},
+            {90, "XC"},
+            {40, "XL"},
+            {50, "L"},
             {10, "X"},
+            {9, "IX"},
+            {5, "V"},
+            {4, "IV"},
+            {1, "I"},
         };
 
-        public string ToRoman(int arabic)
-        {
-            var result = "";
-
-            foreach (var number in _romanNumeralsLookup.Keys.Reverse())
-            {
-                while (arabic >= number)
+        public string ToRoman(int arabic) =>
+            _romanNumeralsLookup.Keys.Reverse()
+                .Aggregate("", (result, number) =>
                 {
-                    result += _romanNumeralsLookup[number];
-                    arabic -= number;
-                }
-            }
+                    while (arabic >= number)
+                    {
+                        result += _romanNumeralsLookup[number];
+                        arabic -= number;
+                    }
 
-            return result;
-        }
+                    return result;
+                });
     }
 }
