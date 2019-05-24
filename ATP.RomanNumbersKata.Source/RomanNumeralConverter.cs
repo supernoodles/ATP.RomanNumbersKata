@@ -4,7 +4,7 @@
     {
         public string ToRoman(int arabic)
         {
-            var romanNumerals = new[] {"I", "II", "III", "IV"};
+            var romanNumerals = new[] {"I", "II", "III", "IV","V","","","","","X"};
 
             return romanNumerals[arabic - 1];
         }
